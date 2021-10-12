@@ -1,6 +1,7 @@
 const path = require('path');
 
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+
 module.exports = {
   mode: mode,
   entry: './src/index.js',
@@ -17,6 +18,18 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        use: [{
+          loader: "elm-webpack-loader",
+          options: {
+            debug: false,
+            optimize: false,
+            cwd: __dirname,
+          },
+        }],
       },
     ],
   },
