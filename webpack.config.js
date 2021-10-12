@@ -1,6 +1,18 @@
 const path = require('path');
 
-const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+const isProd = process.env.NODE_ENV === "production";
+const mode = isProd ? "production" : "development";
+
+const loaderConfig = {
+  loader: "elm-webpack-loader",
+  options: {
+    debug: !isProd,
+    optimize: isProd,
+    cwd: __dirname,
+  },
+};
+
+const elmLoader = isProd ? [loaderConfig] : [{ loader: "elm-hot-webpack-loader" }, loaderConfig];
 
 module.exports = {
   mode: mode,
@@ -22,14 +34,7 @@ module.exports = {
       {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
-        use: [{
-          loader: "elm-webpack-loader",
-          options: {
-            debug: false,
-            optimize: false,
-            cwd: __dirname,
-          },
-        }],
+        use: elmLoader,
       },
     ],
   },

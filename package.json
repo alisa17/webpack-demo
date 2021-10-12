@@ -12,6 +12,7 @@
   "private": true,
   "devDependencies": {
     "css-loader": "^6.4.0",
+    "elm-hot-webpack-loader": "^1.1.8",
     "elm-webpack-loader": "^8.0.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.58.1",
