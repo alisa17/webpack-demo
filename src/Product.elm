@@ -48,9 +48,48 @@ type alias Dimension =
     }
 
 
-getProductNameString : Product -> String
-getProductNameString =
-    .name >> (\(ProductName x) -> x)
+productNameToString : ProductName -> String
+productNameToString (ProductName name) =
+    name
+
+
+skuToString : ProductSku -> String
+skuToString (ProductSku sku) =
+    sku
+
+
+currencyCodeToString : CurrencyCode -> String
+currencyCodeToString cCode =
+    case cCode of
+        AED ->
+            "AED"
+
+        AUD ->
+            "AUD"
+
+        CAD ->
+            "CAD"
+
+        EUR ->
+            "EUR"
+
+        GBP ->
+            "GBP"
+
+        HKD ->
+            "HKD"
+
+        JPY ->
+            "JPY"
+
+        NZD ->
+            "NZD"
+
+        SGD ->
+            "SGD"
+
+        USD ->
+            "USD"
 
 
 sampleProducts : List Product

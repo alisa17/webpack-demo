@@ -1,5 +1,12 @@
-.hello {
-    color: red;
-    background: url('./icon.png');
-
-  }
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.product {
+  background-color: azure;
+  border: 1px solid grey;
+}
+button:hover {
+  cursor: pointer;
+}
