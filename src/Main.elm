@@ -32,6 +32,8 @@ type ApplicationState
 init : ( Model, Cmd Msg )
 init =
     ( { applicationState = AllProducts
+
+      -- TODO: don't initialise with sample data
       , products = Product.sampleProducts
       }
     , Cmd.none
